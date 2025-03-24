@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 // Fonction pour récupérer et afficher les tâches depuis l'API
 async function fetchTasks() {
     try {
-        const response = await fetch("http://localhost:3000/tasks");
+        const response = await fetch(`${API_URL}/tasks`);
         if (!response.ok) {
             throw new Error(`Erreur HTTP ! statut : ${response.status}`);
         }
@@ -67,7 +67,7 @@ async function addTask() {
     }
 
     try {
-        const response = await fetch("http://localhost:3000/tasks", {
+        const response = await fetch(`${API_URL}/tasks`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ title, description })
@@ -180,7 +180,7 @@ function addTaskToDOM(task) {
 // Fonction pour basculer l'état complété d'une tâche
 async function toggleTaskCompletion(taskId, taskItem) {
     try {
-        const response = await fetch(`http://localhost:3000/tasks/${taskId}/toggle`, { method: "PATCH" });
+        const response = await fetch(`${API_URL}/tasks/${taskId}/toggle`, { method: "PATCH" });
         if (!response.ok) {
             throw new Error(`Erreur HTTP ! statut : ${response.status}`);
         }
@@ -200,7 +200,7 @@ async function toggleTaskCompletion(taskId, taskItem) {
 // Fonction pour supprimer une tâche
 async function deleteTask(taskId, taskItem) {
     try {
-        const response = await fetch(`http://localhost:3000/tasks/${taskId}`, { method: "DELETE" });
+        const response = await fetch(`${API_URL}/tasks/${taskId}`, { method: "DELETE" });
         if (!response.ok) {
             throw new Error(`Erreur HTTP ! statut : ${response.status}`);
         }
@@ -248,7 +248,7 @@ async function editTask(taskId, taskTextElement, taskDescriptionElement) {
         }
 
         try {
-            const response = await fetch(`http://localhost:3000/tasks/${taskId}`, {
+            const response = await fetch(`${API_URL}/tasks/${taskId}`, {
                 method: "PUT",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ title: newTitle, description: newDescription })
@@ -269,8 +269,5 @@ async function editTask(taskId, taskTextElement, taskDescriptionElement) {
     }
 }
 
-// Remplacer toutes les occurrences de 'http://localhost:3000' par votre URL Render
-const API_URL = 'https://to-do-app-dmd.onrender.com';  // Remplacez par votre URL Render
-
-// Puis utilisez API_URL dans tous vos appels fetch, par exemple:
-fetch(`${API_URL}/tasks`)
+// Déplacer cette déclaration au début du fichier, juste après le DOMContentLoaded
+const API_URL = 'https://to-do-app-dmd.onrender.com';
