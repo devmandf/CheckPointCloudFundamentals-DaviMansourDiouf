@@ -1,9 +1,9 @@
 
-Ce README fournit une vue d'ensemble du projet et les instructions essentielles pour le lancement local et le déploiement. N'oubliez pas de mettre à jour l'URL de la démo en direct si elle est différente.
+Vue d'ensemble du projet et quelques instructions essentielles pour le lancement local et le déploiement. 
 
 
-Application de Liste de Tâches
-Une application moderne de gestion des tâches avec une interface élégante et une intégration en temps réel à une base de données.
+## Application de Liste de Tâches
+Ceci est une application moderne de gestion des tâches avec une interface élégante et une intégration en temps réel à une base de données.
 
 ## Fonctionnalités
 - Création de tâches avec titre et description
@@ -30,7 +30,5 @@ Une application moderne de gestion des tâches avec une interface élégante et 
 - Déploiement : Render
 
 ## Comment exécuter en local
-Installer les dépendances :
-
-bash
-npm install
+Installer les dépendances en utilisant le terminal :
+- npm install
