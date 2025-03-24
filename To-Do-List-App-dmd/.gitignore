@@ -1,5 +1,6 @@
-# Ignore everything in parent directory
-../*/
+# Ignore all files in the current directory level except To-Do-List-App-dmd
+!To-Do-List-App-dmd/
+*
 
 # Environment variables
 .env
