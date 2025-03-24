@@ -1,9 +1,3 @@
-# Specific files to ignore
-../Capture d'écran 2025-03-24 162604.png
-../Capture d'écran 2025-03-24 162626.png
-../Desktop.ini
-../Processus Git Bash.txt
-../info.txt
 
 # Environment variables
 .env
