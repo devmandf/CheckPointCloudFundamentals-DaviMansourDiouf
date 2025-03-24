@@ -12,6 +12,7 @@ app.use(cors());
 app.use(express.static(path.join(__dirname)));
 
 // Modifier la route '/' pour servir index.html
+// Garder cette route
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'index.html'));
 });
@@ -33,6 +34,8 @@ app.get('/tasks', async (req, res) => {
     res.json(tasks);
 });
 
+// Supprimer cette route qui est en double
+// Supprimer cette route qui est en double
 app.get('/', (req, res) => {
     res.send('🚀 API To-Do List opérationnelle ! Utilise /tasks pour voir les tâches.');
 });

@@ -268,3 +268,9 @@ async function editTask(taskId, taskTextElement, taskDescriptionElement) {
         }
     }
 }
+
+// Remplacer toutes les occurrences de 'http://localhost:3000' par votre URL Render
+const API_URL = 'https://to-do-app-dmd.onrender.com';  // Remplacez par votre URL Render
+
+// Puis utilisez API_URL dans tous vos appels fetch, par exemple:
+fetch(`${API_URL}/tasks`)
