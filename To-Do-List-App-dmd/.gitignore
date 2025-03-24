@@ -1,6 +1,9 @@
-# Ignore all files in the current directory level except To-Do-List-App-dmd
-!To-Do-List-App-dmd/
-*
+# Specific files to ignore
+Capture d'écran 2025-03-24 162604.png
+Capture d'écran 2025-03-24 162626.png
+Desktop.ini
+Processus Git Bash.txt
+info.txt
 
 # Environment variables
 .env
