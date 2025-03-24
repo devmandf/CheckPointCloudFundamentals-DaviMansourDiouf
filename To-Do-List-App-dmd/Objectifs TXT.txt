@@ -1,0 +1,12 @@
+Objectif : 
+Créer une application web simple permettant aux utilisateurs de gérer une liste de tâches (ajouter, modifier, supprimer, marquer comme terminées). 
+Fonctionnalités : 
+Ajout d'une tâche avec un titre et une description. 
+Liste des tâches affichée sur la page d'accueil. 
+Marquer une tâche comme terminée. 
+Supprimer une tâche. 
+Stockage des tâches dans une base de données MongoDB. 
+Explication pour les étudiants 
+Backend Express + MongoDB pour gérer les tâches. 
+Frontend HTML+CSS+JS pour l'interface utilisateur. 
+API REST Communication entre le frontend et le backend via fetch().

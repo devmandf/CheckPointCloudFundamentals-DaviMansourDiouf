@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dmd</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Jura:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs" type="module"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.6/lottie.min.js"></script>
+</head>
+
+<body>
+    <div class="video-background">
+        <video id="backgroundVideo" autoplay muted loop>
+            <source src="./8low2.mp4" type="video/mp4">
+        </video>
+        <div id="lottieBackground"></div>
+    </div>
+
+    <div class="app-container">
+        <!-- Barre latérale fixe -->
+        <div class="sidebar">
+            <h1>Tâches à faire</h1>
+            <hr class="separator">
+            <div class="input-section">
+                <input type="text" id="taskInput" placeholder="Tâche...">
+                <div id="input-container">
+                    <textarea id="descriptionInput" placeholder="Description..."></textarea>
+                    <dotlottie-player id="dancingCharacter"
+                        src="animations/Animation02-ListCheck.json"
+                        background="transparent"
+                        speed="1"
+                        style="width: 80px; height: 80px"
+                        loop autoplay>
+                    </dotlottie-player>
+                </div>
+                <button id="addTask">Ajouter</button>
+            </div>
+            <!-- Animation Hacker déplacée dans la barre latérale -->
+            <dotlottie-player id="hackerAnimation"
+                src="animations/Hacker icon Lottie 02.json"
+                background="transparent"
+                speed="1"
+                style="width: 300px; height: 300px"
+                loop autoplay>
+            </dotlottie-player>
+        </div>
+
+        <!-- Section principale avec la liste des tâches -->
+        <div class="main-content">
+            <div id="taskList"></div>
+        </div>
+    </div>
+
+    <div id="animationOverlay" style="display: none;">
+        <div id="animationContainer">
+            <dotlottie-player id="lottiePlayer"
+                src="animations/Animation Check Mark - Success.json"
+                background="transparent" speed="1" style="width: 300px; height: 300px" loop autoplay></dotlottie-player>
+            <div id="message" style="color: white; font-size: 20px; margin-top: 20px; text-align: center;">Base de
+                données mise à jour !</div>
+        </div>
+    </div>
+    <div id="editTaskModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Modifier la tâche</h2>
+            <label for="editTaskTitle">Tâche</label>
+            <input type="text" id="editTaskTitle" placeholder="Nom de la tâche">
+            <label for="editTaskDescription">Description</label>
+            <div id="input-container">
+                <textarea id="editTaskDescription" placeholder="Description de la tâche"></textarea>
+                <dotlottie-player id="editDancingCharacter"
+                    src="animations/Animation02-ListCheck.json"
+                    background="transparent"
+                    speed="1"
+                    style="width: 80px; height: 80px"
+                    loop autoplay>
+                </dotlottie-player>
+            </div>
+            <button id="saveTaskChanges" style="margin-top: 20px; margin-bottom: 20px;">Enregistrer</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

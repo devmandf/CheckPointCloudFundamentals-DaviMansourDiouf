@@ -1,0 +1,68 @@
+How to use :
+
+Ouvrir le dossier avec vscode.
+
+Vérifier d'etre dans le dossier de l'app dans le terminal,
+Puis taper :   node server.js
+
+Si ca marche vous devriez avoir ce message : 
+
+"Serveur démarré sur http://localhost:3000 🚀
+💾 Connecté à MongoDB Atlas"
+
+Ensuite pour consulter la page HTML, toujours dans vscode,
+ouvrer le fichier index.html : et faites clic-droit puis Open with Live server.
+
+Une page s'ouvre dans votre navigateur.
+
+Ainsi vous pourrez consulter, modifier, supprimer la liste des tâches à faire.
+
+Tout est lié à ma base de données dans Atlas ou Compass.
+
+Pour modifier et connecter votre base de données, rendez vous dans le fichier server.js et modifier à la 9ème ligne.
+
+
+INFOS : 
+
+# Application de Gestion de Tâches
+
+Une application web moderne de gestion de tâches avec une interface utilisateur élégante et des animations fluides.
+
+## Fonctionnalités
+
+- ✨ Interface utilisateur moderne et responsive
+- 📝 Création et gestion de tâches avec descriptions
+- 🎯 Marquage des tâches comme complétées
+- 🔄 Modification et suppression des tâches
+- 💫 Animations fluides et retours visuels
+- 📱 Compatible mobile et desktop
+
+
+## Technologies utilisées
+
+- Frontend :
+  - HTML5
+  - CSS3
+  - JavaScript
+  - Lottie Animations
+- Backend :
+  - Node.js
+  - Express.js
+  - MongoDB avec Mongoose
+  - CORS
+
+## Structure du projet
+
+```
+├── animations/          # Fichiers d'animations Lottie
+├── node_modules/       # Dépendances (généré après npm install)
+├── index.html         # Page principale
+├── styles.css        # Styles CSS
+├── script.js        # JavaScript frontend
+├── server.js       # Serveur Node.js
+├── package.json   # Configuration du projet
+└── Notes.txt     # Ce fichier
+```
+
+
+Ce projet est sous licence dmd. 

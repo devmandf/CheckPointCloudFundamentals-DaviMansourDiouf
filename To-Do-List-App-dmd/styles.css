@@ -1,0 +1,536 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4f4f4;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+    filter: blur(130px);
+    transform: scale(1.2);
+}
+
+video {
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.container {
+    width: 40%;
+    margin: 50px auto;
+    background: #ffffff42;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    min-height: 80vh; /* Ajout de la hauteur minimale */
+    min-width: 300px; /* Ajout de la largeur minimale */
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-size: 24px;
+    font-family: 'Jura', sans-serif; /* Appliquer la police Jura */
+}
+
+.separator {
+    border: none;
+    height: 2px;
+    background: #000000; /* Couleur du trait de séparation */
+    margin: 20px 0; /* Espacement autour du trait de séparation */
+}
+
+.input-section {
+    display: flex;
+    flex-direction: column; /* Affiche les éléments en colonne */
+    align-items: center; /* Centrez les éléments verticalement */
+    width: 100%; /* Étirez la section pour remplir la largeur */
+    margin-bottom: 20px;
+}
+
+input {
+    flex: 1;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#taskInput {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    box-sizing: border-box;
+}
+
+#descriptionInput {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    box-sizing: border-box;
+    height: 100px; /* Hauteur initiale */
+    resize: vertical; /* Permet à l'utilisateur de redimensionner verticalement */
+}
+
+button {
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+#addTask {
+    background: rgba(102, 88, 145, 0.894);
+    color: white;
+    margin-left: 10px;
+    transition: background 0.3s ease; /* Ajout de la transition pour un effet de changement de couleur en douceur */
+    width: 100px; /* Fixez la largeur du bouton */
+    margin-top: 10px; /* Ajoutez une marge en haut pour espacer du champ de description */
+}
+
+#addTask:hover {
+    background: rgba(80, 33, 74, 0.894); /* Changez cette couleur selon vos préférences */
+}
+
+.task {
+    position: relative; /* Assurez-vous que le conteneur de la tâche est positionné relativement */
+    margin-bottom: 20px;
+    background: white;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: background 0.3s ease;
+}
+
+.task-name {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: left; /* Aligner le texte à gauche */
+}
+
+.task-description {
+    display: block;
+    font-size: 14px;
+    color: #555; /* Légèrement plus foncé pour une meilleure lisibilité */
+    text-align: left; /* Aligner le texte à gauche */
+    word-wrap: break-word; /* Permet de couper les mots trop longs */
+}
+
+.task.completed {
+    background: #c2f231; /* Vert clair quand c'est terminé */
+}
+
+.task.completed .complete-btn {
+    background: green; /* Bouton Valider devient vert quand la tâche est terminée */
+}
+
+.task-text {
+    flex-grow: 1;
+    font-size: 18px;
+    color: #333;
+    margin-left: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: left; /* Aligner le texte à gauche */
+}
+
+.button-container {
+    display: flex;
+    justify-content: flex-end; /* Aligne les boutons à droite */
+    gap: 10px; /* Ajoute un espacement constant entre les boutons */
+    position: absolute; /* Positionne les boutons en haut à droite */
+    top: 50%; /* Ajuste la position verticale pour être à la même hauteur que le nom de la tâche */
+    transform: translateY(-50%); /* Centre verticalement les boutons */
+    right: 10px; /* Ajuste la position horizontale */
+    width: auto; /* Ajustez la largeur des boutons */
+    justify-content: space-between; /* Espacez les boutons uniformément */
+}
+
+.complete-btn, .edit-btn, .delete-btn {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.complete-btn {
+    background: rgba(102, 88, 145, 0.894);
+    color: white;
+}
+
+.edit-btn {
+    background: rgba(102, 88, 145, 0.894);
+    color: black;
+}
+
+.delete-btn {
+    background: rgba(102, 88, 145, 0.894);
+    color: white;
+}
+
+.complete-btn:hover {
+    background: rgb(152, 228, 30);
+}
+
+.edit-btn:hover {
+    background: rgb(152, 228, 30);
+}
+
+.delete-btn:hover {
+    background: darkred;
+}
+
+/* Media queries pour les petites tailles d'écran */
+@media (max-width: 800px) {
+    .container {
+        width: 90%; /* Ajustez la largeur du conteneur */
+        padding: 10px; /* Réduisez le padding */
+        min-width: 300px; /* Ajout de la largeur minimale */
+    }
+
+    .input-section {
+        flex-direction: column; /* Affiche les éléments en colonne */
+        align-items: center; /* Centrez les éléments verticalement */
+        width: 100%; /* Étirez la section pour remplir la largeur */
+    }
+
+    input {
+        margin-bottom: 0; /* Supprimez l'espace entre l'input et le bouton */
+        width: calc(100% - 120px); /* Ajustez la largeur de l'input pour laisser de la place au bouton */
+    }
+
+    #addTask {
+        width: 100px; /* Fixez la largeur du bouton */
+        margin-left: 10px; /* Ajoutez une marge gauche */
+    }
+
+    .task {
+        flex-direction: row; /* Gardez les éléments sur la même ligne */
+        align-items: center; /* Centrez les éléments verticalement */
+    }
+
+    .complete-btn, .edit-btn, .delete-btn {
+        font-size: 14px; /* Réduisez la taille de la police */
+        padding: 6px 8px; /* Réduisez le padding */
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1200px) {
+    .container {
+        width: 60%; /* Ajuste la largeur pour les écrans intermédiaires */
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+    .container {
+        width: 60%; /* Ajuste la largeur pour les écrans intermédiaires */
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .container {
+        width: min(90%, 1000px);
+    }
+}
+
+@media (max-width: 359px) {
+    .container {
+        transform: scale(0.9); /* Réduit tout proportionnellement */
+        transform-origin: top center; /* Garde l'alignement */
+    }
+
+    .input-section, .task, .button-container {
+        transform: scale(0.9);
+    }
+}
+
+
+#animationOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Fond semi-transparent */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Assurez-vous que l'animation est au-dessus de tout */
+    backdrop-filter: blur(10px); /* Ajoute un effet de flou */
+}
+
+#animationContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 60px; /* Réduit l'espace entre l'animation et le message */
+}
+
+
+#message {
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    position: relative;
+    top: -70px; /* Monte le texte vers l'animation */
+}
+
+
+#descriptionInput {                 
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    box-sizing: border-box;
+    height: 100px; /* Hauteur initiale */
+    resize: vertical; /* Permet à l'utilisateur de redimensionner verticalement */
+}
+.description-container {
+    margin-top: 5px; /* Réduit l'espace entre la tâche et la description */
+    padding-left: 15px; /* Ajoute un padding pour aligner la description avec le texte de la tâche */
+    width: 100%; /* Assurez-vous que la description prend toute la largeur */
+    display: block; /* Affichez la description en tant que bloc pour qu'elle soit en dessous de la tâche */
+}
+
+.task-description {
+    display: block;
+    font-size: 14px;
+    color: #555; /* Légèrement plus foncé pour une meilleure lisibilité */
+    text-align: left; /* Aligner le texte à gauche */
+    word-wrap: break-word; /* Permet de couper les mots trop longs */
+}
+
+.task-content {
+    padding-right: 150px; /* Ajoutez un padding à droite pour éviter que le texte n'empiète sur les boutons */
+}
+
+.modal {
+    display: none; /* Masqué par défaut */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: rgba(0,0,0,0.4);
+    padding-top: 60px;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 10px;
+}
+
+.modal-content label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+    text-align: left; /* Aligner le texte à gauche */
+
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#editTaskTitle, #editTaskDescription {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    box-sizing: border-box;
+}
+
+#editTaskDescription {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    box-sizing: border-box;
+    height: 100px; /* Hauteur initiale */
+    resize: vertical; /* Permet à l'utilisateur de redimensionner verticalement */
+}
+
+#saveTaskChanges {
+    background: rgba(102, 88, 145, 0.894); /* Couleur mauve par défaut */
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s ease; /* Ajout de la transition pour un effet de changement de couleur en douceur */
+}
+
+#saveTaskChanges:hover {
+    background: rgb(152, 228, 30); /* Couleur verte au survol */
+}
+
+#input-container {
+    position: relative;
+    width: 100%; /* Ajustez la largeur pour qu'elle s'adapte à la section d'entrée */
+    height: 150px;
+    margin: 10px 0; /* Ajoutez une marge pour espacer les éléments */
+}
+
+#descriptionInput, #editTaskDescription {
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    font-size: 16px;
+    color: #000000;
+    background: rgba(255, 255, 255, 0.9);
+    border: 2px solid rgba(102, 88, 145, 0.894);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    resize: none;
+}
+
+#dancingCharacter, #editDancingCharacter {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    z-index: 3;
+}
+
+#lottieBackground {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    filter: blur(20px); /* Applique un filtre de flou de 20 pixels */
+}
+
+/* Nouvelle mise en page avec barre latérale */
+.app-container {
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+    z-index: 1;
+}
+
+.sidebar {
+    width: 350px;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.main-content {
+    flex: 1;
+    margin-left: 350px;
+    padding: 20px;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+/* Ajustements pour les éléments de la barre latérale */
+.input-section {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
+}
+
+#taskInput,
+#descriptionInput {
+    width: 100%;
+    box-sizing: border-box;
+    background: rgba(255, 255, 255, 0.9);
+}
+
+#addTask {
+    width: 100%;
+    margin: 0;
+}
+
+/* Ajustements pour la liste des tâches */
+#taskList {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5px);
+    border-radius: 10px;
+}
+
+/* Media queries pour la réactivité */
+@media (max-width: 768px) {
+    .app-container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+        min-height: auto;
+    }
+
+    .main-content {
+        margin-left: 0;
+        width: 100%;
+    }
+}
+
+#hackerAnimation {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    width: 300px;
+    height: 300px;
+}
