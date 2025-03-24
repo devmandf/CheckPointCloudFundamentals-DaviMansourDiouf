@@ -1,0 +1,25 @@
+
+
+
+J'ai pu compléter le chapitre *Fondamentaux du cloud* en déployant mon application sur une plateforme en ligne.
+
+Adresse de mon application web : 
+https://to-do-app-dmd.onrender.com
+
+Par contre, dans les instructions du checkpoint, ils disent d'utiliser Microsoft Azure, mais à un certain moment du processus de création de compte, ils demandent obligatoirement une carte de crédit ou de débit. Peut-être que c'est une nouvelle exigence que celui qui a confectionné le checkpoint n'a pas eue à rencontrer.
+
+J’ai finalement utilisé https://render.com/
+
+
+
+
+Ici j'utilise une application web classique (HTML, CSS, JavaScript) avec un backend en Node.js/Express, connecté à une base de données MongoDB.
+
+La seule chose que je n'ai pas respecté ici c'est l'utlisation de React.
+Parce que j'avais déjà une app web fonctionnelle utilisant le front et le backend en stock.
+
+
+Définition
+*MERN : c'est un stack de développement web composé de MongoDB, Express.js, React et Node.js.
+
+

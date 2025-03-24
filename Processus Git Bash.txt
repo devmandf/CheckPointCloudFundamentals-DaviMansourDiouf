@@ -1,0 +1,16 @@
+git init
+git add .
+git status
+git commit -m "first commit"
+git branch -M main
+git remote add origin (Lien)
+git push -u origin main
+
+pour une ajouter les modifications :
+
+git status
+git add .
+git commit -m "Description des modifications"
+git push origin main
+
+
